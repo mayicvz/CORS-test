@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Test</title>
+</head>
+<body>
+    <button onclick="testAPI()">点击测试API</button>
+
+    <script>
+        function testAPI() {
+            fetch('https://17kwi4adve-vpce-03601df826ed35dda.execute-api.ap-northeast-1.amazonaws.com/prod/users', {
+                method: 'GET', //get all users
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('成功!');
+            })
+            .catch(error => {
+                console.error('失败:', error);
+                alert('失败!');
+            });
+        }
+    </script>
+</body>
+</html>
